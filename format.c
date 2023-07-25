@@ -7,7 +7,7 @@
 int _printf(const char *format, ...)
 {
 	va_list form;
-	int total = 0;
+	int total = 0, count = 0;
 
 	if (format == NULL)
 		return (-1);
@@ -25,15 +25,24 @@ int _printf(const char *format, ...)
 				total++;
 			}
 			else if (*format == 's')
-				total += formstring(form);
+			{
+				count = formstring(form);
+				if (count == -1)
+				{
+					total += _putchar('-');
+					total += _putchar('1');
+				}
+				else
+					total += count;
+			}
 			else if (*format == 'c')
 				total += charform(form);
 			else if (*format == 'd' || *format == 'i')
 				total += numsform(form);
 			else
 			{
-				write(1, format - 1, 1);
-				total++;
+				write(1, format - 1, 2);
+				total += 2;
 			}
 		}
 		else
