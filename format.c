@@ -39,7 +39,7 @@ int _printf(const char *format, ...)
 				total += charform(form);
 			else if (*format == 'd' || *format == 'i')
 				total += numsform(form);
-			else if (*format == 'u')
+			else if (*format == 'b')
 				total += print_unsign(form);
 			else
 			{
