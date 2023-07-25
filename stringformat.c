@@ -14,7 +14,6 @@ int formstring(va_list sling)
 	if (x == NULL)
 	{
 		x = "(null)";
-		return (-1);
 	}
 	len = strlength(x);
 	write(1, x, len);
