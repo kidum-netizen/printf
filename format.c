@@ -25,10 +25,15 @@ int _printf(const char *format, ...)
 			}
 			else if (*format == 's')
 			{
-				s = va_arg(form, char *);
-				len = strlength(s);
-				write(1, s, len);
-				total += len;
+				if (s == NULL)
+					return (-1);
+				else
+				{
+					s = va_arg(form, char *);
+					len = strlength(s);
+					write(1, s, len);
+					total += len;
+				}
 			}
 			else if (*format == '%')
 			{
