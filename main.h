@@ -6,5 +6,6 @@
 
 int _printf(const char *format, ...);
 int my_print(const char *design, ...);
+int strlength(const char *s);
 
 #endif

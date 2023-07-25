@@ -7,9 +7,9 @@
 int _printf(const char *format, ...)
 {
 	va_list form;
-	int total = 0;
-	int ch;
 	char *s;
+	int total = 0, len = 0;
+	int ch;
 
 	va_start(form, format);
 	while (*format != '\0')
@@ -25,13 +25,10 @@ int _printf(const char *format, ...)
 			}
 			else if (*format == 's')
 			{
-				s = va_arg(form, char*);
-				while (*s != '\0')
-				{
-					write(1, s, 1);
-					s++;
-					total++;
-				}
+				s = va_arg(form, char *);
+				len = strlength(s);
+				write(1, s, len);
+				total += len;
 			}
 			else if (*format == '%')
 			{
@@ -45,7 +42,6 @@ int _printf(const char *format, ...)
 			total++;
 		}
 		format++;
-
 	}
 	va_end(form);
 	return (total);
