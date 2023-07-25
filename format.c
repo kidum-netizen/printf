@@ -8,7 +8,6 @@ int _printf(const char *format, ...)
 {
 	va_list form;
 	int total = 0;
-	char per;
 	int ch;
 	char *s;
 
@@ -22,6 +21,7 @@ int _printf(const char *format, ...)
 			{
 				ch = (char) va_arg(form, int);
 				write(1, &ch, 1);
+				total++;
 			}
 			else if (*format == 's')
 			{
@@ -30,26 +30,22 @@ int _printf(const char *format, ...)
 				{
 					write(1, s, 1);
 					s++;
+					total++;
 				}
 			}
 			else if (*format == '%')
 			{
-				per = '%';
-				write(1, &per, 1);
-			}
-			else
-			{
-				per = '%';
-				write(1, &per, 1);
-				format--;
+				write(1, "%", 1);
+				total++;
 			}
 		}
 		else
 		{
 			write(1, format, 1);
+			total++;
 		}
 		format++;
-		total++;
+
 	}
 	va_end(form);
 	return (total);
