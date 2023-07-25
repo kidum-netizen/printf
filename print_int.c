@@ -1,12 +1,15 @@
 #include "main.h"
 /**
  * print_unsign- Prints unsigned integers
- * @i: The int
+ * @argum: The unsigned int
  * Return: unsigned int;
  */
-int print_unsign(unsigned int i)
+int print_unsign(va_list argum)
 {
+	unsigned int i;
 	int total = 0, div = 1;
+
+	i = va_arg(argum, unsigned int);
 
 	while (i / div >= 10)
 	{
