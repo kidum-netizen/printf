@@ -16,9 +16,7 @@ int _printf(const char *format, ...)
 		if (*format == '%')
 		{
 			format++;
-			if (s == NULL)
-				return (-1);
-			else if (*format == 'c')
+			if (*format == 'c')
 			{
 				ch = (char) va_arg(form, int);
 				write(1, &ch, 1);
