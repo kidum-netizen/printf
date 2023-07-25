@@ -6,20 +6,26 @@
  */
 int print_unsign(va_list argum)
 {
-	unsigned int i;
-	int total = 0, div = 1;
+	unsigned int un;
+	int total = 0, x = 0;
+	int n;
+	char bin[32];
 
-	i = va_arg(argum, unsigned int);
-
-	while (i / div >= 10)
+	un = va_arg(argum, unsigned int);
+	if (un == 0)
 	{
-		div *= 10;
+		total += _putchar('0');
 	}
-	while (div != 0)
+	while (un > 0)
 	{
-		total += _putchar('0' + i / div);
-		i %= div;
-		div /= 10;
+		bin[n++] = un % 2 + '0';
+
+		un /= 2;
+	}
+	x = n - 1;
+	for (; x > 0; x--)
+	{
+		total  += _putchar(bin[x]);
 	}
 	return (total);
 }
