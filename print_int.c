@@ -1,7 +1,7 @@
 #include "main.h"
 /**
  * print_unsign- Prints unsigned integers
- * @n: The int
+ * @i: The int
  * Return: unsigned int;
  */
 int print_unsign(unsigned int i)
@@ -14,7 +14,7 @@ int print_unsign(unsigned int i)
 	}
 	while (div != 0)
 	{
-		total += _putchar('0' + i/div);
+		total += _putchar('0' + i / div);
 		i %= div;
 		div /= 10;
 	}

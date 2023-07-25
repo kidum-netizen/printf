@@ -1,6 +1,7 @@
 #include "main.h"
 /**
  * numsform- Handles d and i specifiers
+ * @nums: int specifiers
  * Return: total number of nums
  */
 int numsform(va_list nums)

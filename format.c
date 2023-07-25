@@ -16,26 +16,18 @@ int _printf(const char *format, ...)
 		{
 			format++;
 			if (*format == '\0')
-			{
 				break;
-			}
 			else if (*format == '%')
 			{
 				write(1, "%", 1);
 				total++;
 			}
 			else if (*format == 's')
-			{
 				total += formstring(form);
-			}
 			else if (*format == 'c')
-			{
 				total += charform(form);
-			}
 			else if (*format == 'd' || *format == 'i')
-			{
 				total += numsform(form);
-			}
 			else
 			{
 				write(1, format - 1, 1);

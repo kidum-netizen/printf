@@ -1,7 +1,7 @@
 #include "main.h"
 /**
  * formstring- Prints strings
- * @s: string to be checked
+ * @sling: string to be checked
  * Return: Total string length
  */
 int formstring(va_list sling)
