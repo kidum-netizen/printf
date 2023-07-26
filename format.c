@@ -1,17 +1,18 @@
 #include "main.h"
 /**
- * _printf- Produces output according to format
+ * _printf- forms an output based to format
  * @format: character sting
  * Return: the number of characters printed
  */
 int _printf(const char *format, ...)
 {
 	va_list form;
-	int total = 0, count = 0;
+	int total = 0, sum = 0;
 
 	if (format == NULL)
 		return (-1);
 	va_start(form, format);
+	/*while format is not null*/
 	while (*format != '\0')
 	{
 		if (*format == '%')
@@ -26,14 +27,16 @@ int _printf(const char *format, ...)
 			}
 			else if (*format == 's')
 			{
-				count = formstring(form);
-				if (count == -1)
+				sum = formstring(form);
+				/*meaning if string is null*/
+				if (sum == -1)
 				{
+					/*Prints -1*/
 					total += _putchar('-');
 					total += _putchar('1');
 				}
 				else
-					total += count;
+					total += sum;
 			}
 			else if (*format == 'c')
 				total += charform(form);

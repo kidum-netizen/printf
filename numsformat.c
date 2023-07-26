@@ -8,29 +8,33 @@ int numsform(va_list nums)
 {
 	int i;
 	unsigned int x;
-	int div = 1, leng = 0;
+	int tens = 1, leng = 0;
 
 	i = va_arg(nums, int);
 
 	if (i < 0)
 	{
+		/*Here we are changing to absolute value*/
 		leng += _putchar('-');
 
 		x = i * -1;
 	}
 	else
 	{
+		/*if i is positive change to size_t*/
 		x = i;
 	}
-	while (x / div >= 10)
+	while (x / tens >= 10)
 	{
-		div *= 10;
+		/*it means we mutiply by 10 to evaluate place value*/
+		tens *= 10;
 	}
-	while (div != 0)
+	while (tens != 0)
 	{
-		leng += _putchar('0' + x / div);
-		x %= div;
-		div /= 10;
+		/*used to determine the pv and change to single char*/
+		leng += _putchar('0' + x / tens);
+		x %= tens;
+		tens /= 10;
 	}
 	va_end(nums);
 	return (leng);
