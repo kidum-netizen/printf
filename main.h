@@ -9,7 +9,8 @@ int my_print(const char *design, ...);
 int strlength(const char *s);
 int formstring(va_list sling);
 int charform(va_list champ);
-int print_unsign(va_list argum);
+void print_binary(unsigned int i);
+void binary_va(va_list conv);
 int _putchar(char c);
 int numsform(va_list nums);
 

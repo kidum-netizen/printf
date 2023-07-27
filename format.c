@@ -43,7 +43,7 @@ int _printf(const char *format, ...)
 			else if (*format == 'd' || *format == 'i')
 				total += numsform(form);
 			else if (*format == 'b')
-				total += print_unsign(form);
+				binary_va(form);
 			else
 			{
 				write(1, format - 1, 2);
